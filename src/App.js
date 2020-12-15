@@ -1,17 +1,26 @@
+import React, {useState} from 'react'
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { MuiThemeProvider } from '@material-ui/core/styles'
-import { lightModeTheme } from './components/UniversalStyles'
-
-function App() {
+import {ThemeProvider } from '@material-ui/core/styles'
+import {lightTheme, darkTheme} from './components/UniversalStyles'
+import Main from './components/Main'
+const  App = () => { 
+  const [darkmode, setDarkMode] = useState(false)
 
   
+ 
+
+
   return (
-    <div className="App">
-      <MuiThemeProvider theme={lightModeTheme}>
-        <CssBaseline/>
-          <h1>Countries</h1>
-      </MuiThemeProvider>
-    </div>
+    
+ 
+        <ThemeProvider theme ={darkmode ? darkTheme: lightTheme}> 
+           <CssBaseline/>
+            <Main/>
+            <button onClick={() => setDarkMode(prevState => !prevState)}>Toggle Theme</button>
+        </ThemeProvider> 
+      
+    
+
   );
 }
 
