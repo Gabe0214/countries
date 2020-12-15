@@ -1,12 +1,19 @@
+import React, { useState } from 'react';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { ThemeProvider } from '@material-ui/core/styles';
+import { lightTheme, darkTheme } from './components/UniversalStyles';
+import Main from './components/Main';
 
-import './App.css';
+const App = () => {
+	const [ darkmode, setDarkMode ] = useState(false);
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Countries</h1>
-    </div>
-  );
-}
+	return (
+		<ThemeProvider theme={darkmode ? darkTheme : lightTheme}>
+			<CssBaseline>
+				<Main />
+			</CssBaseline>
+		</ThemeProvider>
+	);
+};
 
 export default App;
