@@ -14,6 +14,17 @@ export const lightTheme = createMuiTheme({
 	},
 	typography: {
 		fontFamily: 'Nunito'
+	},
+	overrides: {
+		MuiFilledInput: {
+			root: {
+				backgroundColor: '#fff'
+			},
+			input: {
+				fontWeight: 600,
+				padding: '1rem 2rem'
+			}
+		}
 	}
 });
 
