@@ -4,10 +4,17 @@ export const useStyles = makeStyles((theme) => ({
 	root: {
 		flexGrow: 1
 	},
-	menuButton: {
-		marginRight: theme.spacing(2)
-	},
 	title: {
-		flexGrow: 1
+		flexGrow: 1,
+		fontWeight: '800'
+	},
+	fontI: {
+		marginRight: '8px'
+	},
+	toolbar: {
+		minHeight: '80px'
+	},
+	iconContainer: {
+		cursor: 'pointer'
 	}
 }));
