@@ -1,18 +1,8 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-
-const useStyles = makeStyles((theme) => ({
-	formControl: {
-		margin: theme.spacing(1),
-		minWidth: 120
-	},
-	selectEmpty: {
-		marginTop: theme.spacing(2)
-	}
-}));
+import { useStyles } from './FilterRegionStyles/FilterRegionStyles';
 
 const Placeholder = ({ children }) => {
 	return <div>{children}</div>;
@@ -20,23 +10,26 @@ const Placeholder = ({ children }) => {
 
 export const FilterRegion = function() {
 	const classes = useStyles();
-	const [ age, setAge ] = React.useState('');
+	const [ filterOption, setFilterOption ] = React.useState('');
 
-	const handleChange = (event) => {
-		setAge(event.target.value);
+	const handleChange = (e) => {
+		console.log(e.target.value);
+		setFilterOption(e.target.value);
 	};
 
 	return (
 		<FormControl variant='filled' className={classes.formControl}>
 			<Select
-				value={age}
+				value={filterOption}
 				onChange={handleChange}
 				displayEmpty
-				renderValue={age == '' ? () => <Placeholder>Filter By Region</Placeholder> : undefined}
+				renderValue={filterOption == '' ? () => <Placeholder>Filter By Region</Placeholder> : undefined}
 			>
-				<MenuItem value={10}>Ten</MenuItem>
-				<MenuItem value={20}>Twenty</MenuItem>
-				<MenuItem value={30}>Thirty</MenuItem>
+				<MenuItem value={10}>Africa</MenuItem>
+				<MenuItem value={20}>America</MenuItem>
+				<MenuItem value={30}>Asia</MenuItem>
+				<MenuItem value={30}>Europe</MenuItem>
+				<MenuItem value={30}>Oceania</MenuItem>
 			</Select>
 		</FormControl>
 	);
