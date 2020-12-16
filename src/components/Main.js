@@ -1,10 +1,13 @@
 import React from 'react';
+
 import { SearchInput } from './Search/Search';
+import { FilterRegion } from './FitlerRegion/FilterRegion';
+
 const Main = () => {
 	return (
 		<div>
-			<h1>Countries</h1>
 			<SearchInput />
+			<FilterRegion />
 		</div>
 	);
 };
