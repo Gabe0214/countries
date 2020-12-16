@@ -1,8 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
@@ -30,10 +28,7 @@ export const FilterRegion = function() {
 
 	return (
 		<FormControl variant='filled' className={classes.formControl}>
-			{/* <InputLabel id='demo-simple-select-filled-label'>Age</InputLabel> */}
 			<Select
-				// labelId='demo-simple-select-filled-label'
-				// id='demo-simple-select-filled'
 				value={age}
 				onChange={handleChange}
 				displayEmpty
