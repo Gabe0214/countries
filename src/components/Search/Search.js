@@ -14,7 +14,7 @@ export const SearchInput = () => {
 				fullWidth={true}
 				color='primary'
 			/>
-			<FontAwesomeIcon icon={faSearch} />
+			<FontAwesomeIcon icon={faSearch} style={{ position: 'absolute', top: '17px', left: '32px', opacity: '0.42' }} />
 		</form>
 	);
 };
