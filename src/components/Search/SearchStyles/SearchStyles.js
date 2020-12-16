@@ -6,6 +6,7 @@ export const useStyles = makeStyles((theme) => ({
 			width: '100%'
 		},
 		position: 'relative',
-		padding: '0 16px 0 16px'
+		padding: '0 16px 0 16px',
+		marginTop: '10%'
 	}
 }));
