@@ -2,10 +2,11 @@ import React from 'react';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import { useStyles } from './FilterRegionStyles/FilterRegionStyles';
+import { useStyles, selectThemeLight } from './FilterRegionStyles/FilterRegionStyles';
+import { ThemeProvider } from '@material-ui/core/styles';
 
 const Placeholder = ({ children }) => {
-	return <div>{children}</div>;
+	return <div style={{ fontWeight: 600, fontFamily: 'Nunito' }}>{children}</div>;
 };
 
 export const FilterRegion = function() {
@@ -19,18 +20,21 @@ export const FilterRegion = function() {
 
 	return (
 		<FormControl variant='filled' className={classes.formControl}>
-			<Select
-				value={filterOption}
-				onChange={handleChange}
-				displayEmpty
-				renderValue={filterOption == '' ? () => <Placeholder>Filter By Region</Placeholder> : undefined}
-			>
-				<MenuItem value={10}>Africa</MenuItem>
-				<MenuItem value={20}>America</MenuItem>
-				<MenuItem value={30}>Asia</MenuItem>
-				<MenuItem value={30}>Europe</MenuItem>
-				<MenuItem value={30}>Oceania</MenuItem>
-			</Select>
+			<ThemeProvider theme={selectThemeLight}>
+				<Select
+					value={filterOption}
+					onChange={handleChange}
+					displayEmpty
+					renderValue={filterOption == '' ? () => <Placeholder>Filter By Region</Placeholder> : undefined}
+					color='primary'
+				>
+					<MenuItem value={10}>Africa</MenuItem>
+					<MenuItem value={20}>America</MenuItem>
+					<MenuItem value={30}>Asia</MenuItem>
+					<MenuItem value={30}>Europe</MenuItem>
+					<MenuItem value={30}>Oceania</MenuItem>
+				</Select>
+			</ThemeProvider>
 		</FormControl>
 	);
 };
