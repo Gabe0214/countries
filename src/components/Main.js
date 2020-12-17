@@ -5,6 +5,23 @@ import { FilterRegion } from './FitlerRegion/FilterRegion';
 import Countries from './Countries/Countries';
 
 const Main = ({ darkMode }) => {
+	const [ countries, setCountries ] = useState([]);
+
+	useEffect(() => {
+		const fetchCountries = async () => {
+			try {
+				const response = await axios.get('https://restcountries.eu/rest/v2/all');
+				setCountries(response.data);
+			} catch (error) {
+				console.log(error);
+			}
+		};
+
+		fetchCountries();
+	}, []);
+
+	console.log(countries);
+
 	return (
 		<div>
 			<SearchInput darkMode={darkMode} />
