@@ -3,7 +3,7 @@ import { createMuiTheme } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles((theme) => ({
 	formControl: {
-		margin: '5% 0 0 0',
+		margin: '5% 0 8% 0',
 		width: '70%',
 		padding: '0 16px 0 16px'
 	}
