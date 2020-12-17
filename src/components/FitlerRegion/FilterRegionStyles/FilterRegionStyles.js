@@ -55,3 +55,55 @@ export const selectThemeLight = createMuiTheme({
 		primary: '#111517'
 	}
 });
+
+export const selectThemeDark = createMuiTheme({
+	overrides: {
+		MuiSelect: {
+			filled: {
+				padding: '1rem 2rem 1rem 0.8rem !important',
+				boxShadow: '0px 3px 3px -2px rgba(0,0,0,0.2),0px 3px 4px 0px rgba(0,0,0,0.14),0px 1px 8px 0px rgba(0,0,0,0.12)',
+				borderRadius: '4px'
+			},
+			icon: {
+				color: '#fff'
+			}
+		},
+		MuiFilledInput: {
+			root: {
+				backgroundColor: '#2b3945'
+			},
+			underline: {
+				borderBottom: 'none',
+
+				'&:after': {
+					borderBottom: 'none'
+				},
+
+				'&:before': {
+					borderBottom: 'none'
+				}
+			}
+		},
+		MuiPopover: {
+			paper: {
+				top: '243px !important',
+				backgroundColor: '#2b3945'
+			}
+		},
+
+		MuiMenuItem: {
+			root: {
+				minHeight: '0px'
+			}
+		}
+	},
+	palette: {
+		primary: {
+			main: '#2b3945'
+		},
+
+		text: {
+			primary: '#fff'
+		}
+	}
+});

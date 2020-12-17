@@ -2,14 +2,14 @@ import React from 'react';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import { useStyles, selectThemeLight } from './FilterRegionStyles/FilterRegionStyles';
+import { useStyles, selectThemeLight, selectThemeDark } from './FilterRegionStyles/FilterRegionStyles';
 import { ThemeProvider } from '@material-ui/core/styles';
 
 const Placeholder = ({ children }) => {
 	return <div style={{ fontWeight: 600, fontFamily: 'Nunito' }}>{children}</div>;
 };
 
-export const FilterRegion = function() {
+export const FilterRegion = function({ darkMode }) {
 	const classes = useStyles();
 	const [ filterOption, setFilterOption ] = React.useState('');
 
@@ -20,7 +20,7 @@ export const FilterRegion = function() {
 
 	return (
 		<FormControl variant='filled' className={classes.formControl}>
-			<ThemeProvider theme={selectThemeLight}>
+			<ThemeProvider theme={darkMode ? selectThemeDark : selectThemeLight}>
 				<Select
 					value={filterOption}
 					onChange={handleChange}
