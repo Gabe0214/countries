@@ -32,6 +32,9 @@ export const selectThemeLight = createMuiTheme({
 				'&:before': {
 					borderBottom: 'none'
 				}
+			},
+			input: {
+				borderRadius: '4px'
 			}
 		},
 		MuiPopover: {
@@ -82,6 +85,9 @@ export const selectThemeDark = createMuiTheme({
 				'&:before': {
 					borderBottom: 'none'
 				}
+			},
+			input: {
+				borderRadius: '4px'
 			}
 		},
 		MuiPopover: {
