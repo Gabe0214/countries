@@ -22,19 +22,19 @@ const CountryCard = ({ name, text, region }) => {
 					<Typography gutterBottom variant='h5' component='h2'>
 						{name}
 					</Typography>
-					<Typography variant='body2' color='textSecondary' component='p'>
+					<Typography variant='body2' color='textSecondary' component='p' color='textPrimary'>
 						{text}
 					</Typography>
-					<Typography variant='body2' color='textSecondary' component='p'>
+					<Typography variant='body2' color='textSecondary' component='p' color='textPrimary'>
 						{region}
 					</Typography>
 				</CardContent>
 			</CardActionArea>
 			<CardActions>
-				<Button size='small' color='primary'>
+				<Button size='small' color='textPrimary'>
 					Share
 				</Button>
-				<Button size='small' color='primary'>
+				<Button size='small' color='textPrimary'>
 					Learn More
 				</Button>
 			</CardActions>

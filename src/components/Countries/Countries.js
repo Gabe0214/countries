@@ -5,6 +5,7 @@ import Container from '@material-ui/core/Container';
 import { darkTheme, lightTheme } from '../UniversalStyles';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CountryCard from './CountryCard/CountryCard';
+import { cardLight, cardDark } from './CountryCard/CountryCardStyles';
 
 const Countries = ({ darkMode }) => {
 	const data = [
@@ -12,11 +13,9 @@ const Countries = ({ darkMode }) => {
 		{ name: 'Germany', region: 'EUW', text: 'Hamburger' }
 	];
 	return (
-		<ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
+		<ThemeProvider theme={darkMode ? cardDark : cardLight}>
 			<Container maxWidth='sm'>
-				<Typography component='div' style={{ borderRadius: '4px', height: '100vh' }}>
-					{data.map((country) => <CountryCard name={country.name} region={country.region} text={country.text} />)}
-				</Typography>
+				{data.map((country) => <CountryCard name={country.name} region={country.region} text={country.text} />)}
 			</Container>
 		</ThemeProvider>
 	);
