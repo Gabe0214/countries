@@ -12,7 +12,7 @@ const App = () => {
 		<ThemeProvider theme={darkmode ? darkTheme : lightTheme}>
 			<CssBaseline>
 				<NavBar setDarkMode={setDarkMode} darkmode={darkmode} />
-				<Main />
+				<Main darkMode={darkmode} />
 			</CssBaseline>
 		</ThemeProvider>
 	);

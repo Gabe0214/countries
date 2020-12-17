@@ -3,11 +3,11 @@ import React from 'react';
 import { SearchInput } from './Search/Search';
 import { FilterRegion } from './FitlerRegion/FilterRegion';
 
-const Main = () => {
+const Main = ({ darkMode }) => {
 	return (
 		<div>
-			<SearchInput />
-			<FilterRegion />
+			<SearchInput darkMode={darkMode} />
+			<FilterRegion darkMode={darkMode} />
 		</div>
 	);
 };

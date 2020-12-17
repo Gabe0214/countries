@@ -1,48 +1,40 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-
-const useStyles = makeStyles((theme) => ({
-	formControl: {
-		margin: theme.spacing(1),
-		minWidth: 120
-	},
-	selectEmpty: {
-		marginTop: theme.spacing(2)
-	}
-}));
+import { useStyles, selectThemeLight, selectThemeDark } from './FilterRegionStyles/FilterRegionStyles';
+import { ThemeProvider } from '@material-ui/core/styles';
 
 const Placeholder = ({ children }) => {
-	return <div>{children}</div>;
+	return <div style={{ fontWeight: 600, fontFamily: 'Nunito' }}>{children}</div>;
 };
 
-export const FilterRegion = function() {
+export const FilterRegion = function({ darkMode }) {
 	const classes = useStyles();
-	const [ age, setAge ] = React.useState('');
+	const [ filterOption, setFilterOption ] = React.useState('');
 
-	const handleChange = (event) => {
-		setAge(event.target.value);
+	const handleChange = (e) => {
+		console.log(e.target.value);
+		setFilterOption(e.target.value);
 	};
 
 	return (
 		<FormControl variant='filled' className={classes.formControl}>
-			{/* <InputLabel id='demo-simple-select-filled-label'>Age</InputLabel> */}
-			<Select
-				// labelId='demo-simple-select-filled-label'
-				// id='demo-simple-select-filled'
-				value={age}
-				onChange={handleChange}
-				displayEmpty
-				renderValue={age == '' ? () => <Placeholder>Filter By Region</Placeholder> : undefined}
-			>
-				<MenuItem value={10}>Ten</MenuItem>
-				<MenuItem value={20}>Twenty</MenuItem>
-				<MenuItem value={30}>Thirty</MenuItem>
-			</Select>
+			<ThemeProvider theme={darkMode ? selectThemeDark : selectThemeLight}>
+				<Select
+					value={filterOption}
+					onChange={handleChange}
+					displayEmpty
+					renderValue={filterOption == '' ? () => <Placeholder>Filter By Region</Placeholder> : undefined}
+					color='primary'
+				>
+					<MenuItem value={10}>Africa</MenuItem>
+					<MenuItem value={20}>America</MenuItem>
+					<MenuItem value={30}>Asia</MenuItem>
+					<MenuItem value={30}>Europe</MenuItem>
+					<MenuItem value={30}>Oceania</MenuItem>
+				</Select>
+			</ThemeProvider>
 		</FormControl>
 	);
 };
