@@ -39,6 +39,7 @@ const Main = ({ darkMode }) => {
 				allCountries={countries && countries.length}
 				page={currentPage}
 				countriesPerPage={countriesPerPage}
+				setPage={setCurrentPage}
 			/>
 		</div>
 	);

@@ -7,13 +7,9 @@ const CountriesPagination = ({ currentPage, countriesPerPage, setPage, allCountr
 
 	const pages = Math.ceil(allCountries / countriesPerPage);
 
-	const changeHandler = (e, v) => {
-		console.log(v);
-	};
-
 	return (
 		<div className={classes.root}>
-			<Pagination count={pages} page={currentPage} defaultPage={1} color='primary' onChange={changeHandler} />
+			<Pagination count={pages} page={currentPage} defaultPage={1} color='primary' onChange={(e, v) => setPage(v)} />
 		</div>
 	);
 };
