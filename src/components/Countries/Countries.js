@@ -1,21 +1,26 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import { darkTheme, lightTheme } from '../UniversalStyles';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CountryCard from './CountryCard/CountryCard';
 import { cardLight, cardDark } from './CountryCard/CountryCardStyles';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
-const Countries = ({ darkMode }) => {
-	const data = [
-		{ name: 'United States', region: 'NA', text: 'America, Fuck yea' },
-		{ name: 'Germany', region: 'EUW', text: 'Hamburger' }
-	];
+const Countries = ({ darkMode, countriesData }) => {
 	return (
 		<ThemeProvider theme={darkMode ? cardDark : cardLight}>
+			{/* <CssBaseline /> */}
 			<Container maxWidth='sm'>
-				{data.map((country) => <CountryCard name={country.name} region={country.region} text={country.text} />)}
+				{countriesData &&
+					countriesData.map((country) => (
+						<CountryCard
+							name={country.name}
+							region={country.region}
+							population={country.population}
+							capital={country.capital}
+							flag={country.flag}
+							key={country.name}
+						/>
+					))}
 			</Container>
 		</ThemeProvider>
 	);
