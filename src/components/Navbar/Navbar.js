@@ -8,6 +8,11 @@ import { faMoon as light } from '@fortawesome/free-regular-svg-icons';
 import { faMoon as dark } from '@fortawesome/free-solid-svg-icons';
 const NavBar = ({ darkmode, setDarkMode }) => {
 	const classes = useStyles();
+
+	const changeTheme = (e) => {
+		e.preventDefault();
+		setDarkMode((prevState) => !prevState);
+	};
 	return (
 		<div className={classes.root}>
 			<AppBar position='static' elevation={3}>
@@ -15,7 +20,7 @@ const NavBar = ({ darkmode, setDarkMode }) => {
 					<Typography className={classes.title} variant='h6' noWrap>
 						Where In The World?
 					</Typography>
-					<div onClick={() => setDarkMode((prevState) => !prevState)} className={classes.iconContainer}>
+					<div onClick={changeTheme} className={classes.iconContainer}>
 						{darkmode ? (
 							<FontAwesomeIcon icon={dark} className={classes.fontI} />
 						) : (

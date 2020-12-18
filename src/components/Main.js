@@ -26,7 +26,7 @@ const Main = ({ darkMode }) => {
 		<div>
 			<SearchInput darkMode={darkMode} />
 			<FilterRegion darkMode={darkMode} />
-			<Countries darkMode={darkMode} />
+			<Countries darkMode={darkMode} countriesData={countries} />
 		</div>
 	);
 };

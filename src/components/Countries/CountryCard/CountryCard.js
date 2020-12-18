@@ -8,25 +8,24 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
-const CountryCard = ({ name, text, region }) => {
+const CountryCard = ({ name, population, region, flag, capital }) => {
 	const classes = useStyles();
 	return (
 		<Card className={classes.root}>
 			<CardActionArea>
-				<CardMedia
-					className={classes.media}
-					image='https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*'
-					title='Contemplative Reptile'
-				/>
+				<CardMedia className={classes.media} image={flag} title='Contemplative Reptile' />
 				<CardContent>
 					<Typography gutterBottom variant='h5' component='h2'>
 						{name}
 					</Typography>
 					<Typography variant='body2' color='textSecondary' component='p' color='textPrimary'>
-						{text}
+						Population: <Typography component='span'>{population}</Typography>
 					</Typography>
 					<Typography variant='body2' color='textSecondary' component='p' color='textPrimary'>
-						{region}
+						Region: {region}
+					</Typography>
+					<Typography variant='body2' color='textSecondary' component='p' color='textPrimary'>
+						Capital: {capital}
 					</Typography>
 				</CardContent>
 			</CardActionArea>
