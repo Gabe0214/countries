@@ -4,6 +4,7 @@ import { SearchInput } from './Search/Search';
 import { FilterRegion } from './FitlerRegion/FilterRegion';
 import Countries from './Countries/Countries';
 import CountriesPagination from './Countries/Pagination/Pagination';
+import { NameMenu } from './Search/NameMenu/NamesMenu';
 
 const Main = ({ darkMode }) => {
 	const [ countries, setCountries ] = useState([]);
@@ -36,10 +37,9 @@ const Main = ({ darkMode }) => {
 		return c.region == filterOption;
 	});
 
-	console.log(filterOption);
 	return (
 		<div>
-			<SearchInput darkMode={darkMode} query={query} setQuery={setQuery} />
+			<SearchInput darkMode={darkMode} query={query} setQuery={setQuery} countries={countries && countries} />
 			<FilterRegion darkMode={darkMode} filterOption={filterOption} setFilterOption={setFilterOption} />
 			{loading ? <h2>Loading...</h2> : <Countries darkMode={darkMode} countriesData={currentCountries} />}
 			<CountriesPagination

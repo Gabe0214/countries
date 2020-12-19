@@ -3,7 +3,8 @@ import TextField from '@material-ui/core/TextField';
 import { useStyles } from './SearchStyles/SearchStyles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-export const SearchInput = ({ darkMode, query, setQuery }) => {
+import { NameMenu } from './NameMenu/NamesMenu';
+export const SearchInput = ({ darkMode, query, setQuery, countries }) => {
 	const classes = useStyles();
 	return (
 		<form className={classes.root}>
@@ -22,6 +23,7 @@ export const SearchInput = ({ darkMode, query, setQuery }) => {
 				icon={faSearch}
 				style={{ position: 'absolute', top: '17px', left: '32px', opacity: darkMode ? '1' : '0.42' }}
 			/>
+			{/* <NameMenu countriesList={countries} query={query} /> */}
 		</form>
 	);
 };
