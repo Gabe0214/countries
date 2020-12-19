@@ -9,12 +9,11 @@ const Placeholder = ({ children }) => {
 	return <div style={{ fontWeight: 600, fontFamily: 'Nunito' }}>{children}</div>;
 };
 
-export const FilterRegion = function({ darkMode }) {
+export const FilterRegion = function({ darkMode, filterOption, setFilterOption }) {
 	const classes = useStyles();
-	const [ filterOption, setFilterOption ] = React.useState('');
 
 	const handleChange = (e) => {
-		console.log(e.target.value);
+		// console.log(e.target.value);
 		setFilterOption(e.target.value);
 	};
 
@@ -28,11 +27,11 @@ export const FilterRegion = function({ darkMode }) {
 					renderValue={filterOption == '' ? () => <Placeholder>Filter By Region</Placeholder> : undefined}
 					color='primary'
 				>
-					<MenuItem value={10}>Africa</MenuItem>
-					<MenuItem value={20}>America</MenuItem>
-					<MenuItem value={30}>Asia</MenuItem>
-					<MenuItem value={30}>Europe</MenuItem>
-					<MenuItem value={30}>Oceania</MenuItem>
+					<MenuItem value={'Africa'}>Africa</MenuItem>
+					<MenuItem value={'Americas'}>Americas</MenuItem>
+					<MenuItem value={'Asia'}>Asia</MenuItem>
+					<MenuItem value={'Europe'}>Europe</MenuItem>
+					<MenuItem value={'Oceania'}>Oceania</MenuItem>
 				</Select>
 			</ThemeProvider>
 		</FormControl>
