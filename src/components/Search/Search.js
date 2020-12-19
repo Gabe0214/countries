@@ -3,7 +3,7 @@ import TextField from '@material-ui/core/TextField';
 import { useStyles } from './SearchStyles/SearchStyles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-export const SearchInput = ({ darkMode }) => {
+export const SearchInput = ({ darkMode, query, setQuery }) => {
 	const classes = useStyles();
 	return (
 		<form className={classes.root}>
@@ -13,6 +13,10 @@ export const SearchInput = ({ darkMode }) => {
 				variant='filled'
 				fullWidth={true}
 				color='primary'
+				value={query}
+				onChange={(e) => {
+					return setQuery(e.target.value), e.preventDefault();
+				}}
 			/>
 			<FontAwesomeIcon
 				icon={faSearch}
