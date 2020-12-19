@@ -31,6 +31,11 @@ export const selectThemeLight = createMuiTheme({
 
 				'&:before': {
 					borderBottom: 'none'
+				},
+				'&:hover': {
+					'&:before': {
+						borderBottom: 'none'
+					}
 				}
 			},
 			input: {
@@ -69,6 +74,10 @@ export const selectThemeDark = createMuiTheme({
 			},
 			icon: {
 				color: '#fff'
+			},
+
+			selectMenu: {
+				borderRadius: '4px'
 			}
 		},
 		MuiFilledInput: {
@@ -77,6 +86,7 @@ export const selectThemeDark = createMuiTheme({
 			},
 			underline: {
 				borderBottom: 'none',
+				borderRadius: '4px',
 
 				'&:after': {
 					borderBottom: 'none'
@@ -84,6 +94,11 @@ export const selectThemeDark = createMuiTheme({
 
 				'&:before': {
 					borderBottom: 'none'
+				},
+				'&:hover': {
+					'&:before': {
+						borderBottom: 'none'
+					}
 				}
 			},
 			input: {

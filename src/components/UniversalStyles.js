@@ -33,6 +33,12 @@ export const lightTheme = createMuiTheme({
 				},
 				'&:before': {
 					borderBottom: '0'
+				},
+
+				'&:hover': {
+					'&:before': {
+						borderBottom: 'none'
+					}
 				}
 			}
 		}
@@ -72,6 +78,11 @@ export const darkTheme = createMuiTheme({
 				},
 				'&:before': {
 					borderBottom: '0'
+				},
+				'&:hover': {
+					'&:before': {
+						borderBottom: 'none'
+					}
 				}
 			}
 		},
