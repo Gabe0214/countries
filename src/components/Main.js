@@ -10,7 +10,8 @@ const Main = ({ darkMode }) => {
 	const [ countries, setCountries ] = useState([]);
 	const [ loading, setLoading ] = useState(false);
 	const [ currentPage, setCurrentPage ] = useState(1);
-	const [ countriesPerPage ] = useState(25);
+	const [ countriesPerPage, setCountriesPerPage ] = useState(25);
+	const [ filterOption, setFilterOption ] = useState('');
 	useEffect(() => {
 		setLoading(true);
 		const fetchCountries = async () => {
@@ -25,15 +26,23 @@ const Main = ({ darkMode }) => {
 
 		fetchCountries();
 	}, []);
-
+	let filterRegion = [];
 	const indexOfLastCountry = currentPage * countriesPerPage;
 	const indexOfFirstCountry = indexOfLastCountry - countriesPerPage;
-	const currentCountries = countries.slice(indexOfFirstCountry, indexOfLastCountry);
+	const currentCountries = countries.slice(indexOfFirstCountry, indexOfLastCountry).filter((c) => {
+		if (filterOption == '') {
+			return c;
+		}
+		return c.region == filterOption;
+	});
 
+	const countriesDisplay = () => {};
+
+	console.log(filterOption);
 	return (
 		<div>
 			<SearchInput darkMode={darkMode} />
-			<FilterRegion darkMode={darkMode} />
+			<FilterRegion darkMode={darkMode} filterOption={filterOption} setFilterOption={setFilterOption} />
 			{loading ? <h2>Loading...</h2> : <Countries darkMode={darkMode} countriesData={currentCountries} />}
 			<CountriesPagination
 				allCountries={countries && countries.length}
