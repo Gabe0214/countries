@@ -6,7 +6,7 @@ export const useStyles = makeStyles({
 		marginBottom: '8%'
 	},
 	media: {
-		height: 180
+		height: 188
 	}
 });
 
