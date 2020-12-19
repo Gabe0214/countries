@@ -23,7 +23,7 @@ export const SearchInput = ({ darkMode, query, setQuery, countries }) => {
 				icon={faSearch}
 				style={{ position: 'absolute', top: '17px', left: '32px', opacity: darkMode ? '1' : '0.42' }}
 			/>
-			{/* <NameMenu countriesList={countries} query={query} /> */}
+			<NameMenu countriesList={countries} query={query} />
 		</form>
 	);
 };

@@ -37,9 +37,11 @@ const Main = ({ darkMode }) => {
 		return c.region == filterOption;
 	});
 
+	const searchFilter = countries.filter((country) => country.name.toLowerCase().includes(query.toLowerCase()));
+
 	return (
 		<div>
-			<SearchInput darkMode={darkMode} query={query} setQuery={setQuery} countries={countries && countries} />
+			<SearchInput darkMode={darkMode} query={query} setQuery={setQuery} countries={searchFilter} />
 			<FilterRegion darkMode={darkMode} filterOption={filterOption} setFilterOption={setFilterOption} />
 			{loading ? <h2>Loading...</h2> : <Countries darkMode={darkMode} countriesData={currentCountries} />}
 			<CountriesPagination

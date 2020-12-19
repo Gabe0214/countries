@@ -18,15 +18,19 @@ const useStyles = makeStyles((theme) => ({
 		'& > *': {
 			margin: '0',
 			width: '92%',
-			height: '100%'
+			height: '300px',
+			overflowY: 'auto'
+		},
+
+		'& .MuiPaper-root': {
+			backgroundColor: theme.palette.primary.main
 		}
 	}
 }));
 
 export const NameMenu = ({ countriesList, query }) => {
 	const classes = useStyles();
-	// return query !== '' ? (
-	return (
+	return query !== '' ? (
 		<div className={classes.root}>
 			<Paper elevation={5}>
 				<List>
@@ -38,5 +42,5 @@ export const NameMenu = ({ countriesList, query }) => {
 				</List>
 			</Paper>
 		</div>
-	);
+	) : null;
 };
