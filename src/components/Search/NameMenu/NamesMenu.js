@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 	}
 }));
 
-export const NameMenu = ({ countriesList, query }) => {
+export const NameMenu = ({ countriesList, query, history }) => {
 	const classes = useStyles();
 	return query !== '' ? (
 		<div className={classes.root}>
@@ -36,7 +36,7 @@ export const NameMenu = ({ countriesList, query }) => {
 				<List>
 					{countriesList.map((country) => (
 						<ListItem button key={country.name}>
-							<ListItemText primary={country.name} />
+							<ListItemText primary={country.name} onClick={() => history.push(`/country/${country.name}`)} />
 						</ListItem>
 					))}
 				</List>

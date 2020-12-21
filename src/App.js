@@ -4,6 +4,8 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import { lightTheme, darkTheme } from './components/UniversalStyles';
 import Main from './components/Main';
 import NavBar from './components/Navbar/Navbar';
+import { Switch, Route } from 'react-router-dom';
+import CountriesIndividual from './components/Countries/CountriesIndividual/CountriesIndividual';
 
 const App = () => {
 	const [ darkmode, setDarkMode ] = useState(false);
@@ -11,8 +13,20 @@ const App = () => {
 	return (
 		<ThemeProvider theme={darkmode ? darkTheme : lightTheme}>
 			<CssBaseline>
-				<NavBar setDarkMode={setDarkMode} darkmode={darkmode} />
-				<Main darkMode={darkmode} />
+				<Route path='/' render={(props) => <NavBar darkmode={darkmode} setDarkMode={setDarkMode} />} />
+				<Switch>
+					<Route
+						exact
+						path='/'
+						render={(props) => {
+							return <Main darkMode={darkmode} history={props.history} />;
+						}}
+					/>
+					<Route path='/country/:name' render={(props) => <CountriesIndividual {...props} />} />
+					{/* <Route path='/' render={() => <Main darkMode={darkmode} />} /> */}
+				</Switch>
+				{/* <NavBar setDarkMode={setDarkMode} darkmode={darkmode} />
+				<Main darkMode={darkmode} /> */}
 			</CssBaseline>
 		</ThemeProvider>
 	);

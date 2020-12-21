@@ -6,7 +6,7 @@ import Countries from './Countries/Countries';
 import CountriesPagination from './Countries/Pagination/Pagination';
 import { NameMenu } from './Search/NameMenu/NamesMenu';
 
-const Main = ({ darkMode }) => {
+const Main = ({ darkMode, history }) => {
 	const [ countries, setCountries ] = useState([]);
 	const [ loading, setLoading ] = useState(false);
 	const [ currentPage, setCurrentPage ] = useState(1);
@@ -41,7 +41,7 @@ const Main = ({ darkMode }) => {
 
 	return (
 		<div>
-			<SearchInput darkMode={darkMode} query={query} setQuery={setQuery} countries={searchFilter} />
+			<SearchInput darkMode={darkMode} query={query} setQuery={setQuery} countries={searchFilter} history={history} />
 			<FilterRegion darkMode={darkMode} filterOption={filterOption} setFilterOption={setFilterOption} />
 			{loading ? <h2>Loading...</h2> : <Countries darkMode={darkMode} countriesData={currentCountries} />}
 			<CountriesPagination
