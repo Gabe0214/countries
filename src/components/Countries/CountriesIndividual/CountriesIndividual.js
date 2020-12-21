@@ -6,6 +6,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import TrendingFlatIcon from '@material-ui/icons/TrendingFlat';
 import Typography from '@material-ui/core/Typography';
 import { NavLink } from 'react-router-dom';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import { CountryDetatils } from './CountryDetatils';
 
 const useStyles = makeStyles((theme) => ({
 	media: {
@@ -30,11 +34,40 @@ const useStyles = makeStyles((theme) => ({
 		'& .MuiTypography-button': {
 			fontWeight: '600'
 		}
+	},
+	listContainer: {
+		'& .MuiList-root': {
+			paddingTop: '0',
+			paddingBottom: '0'
+		},
+
+		'& .MuiListItem-gutters': {
+			paddingLeft: '0',
+			paddingRight: '0',
+			paddingBottom: '0',
+			paddingTop: '0'
+		},
+
+		'& .MuiTypography-subtitle1': {
+			fontWeight: '600',
+			marginRight: '2%'
+		},
+
+		'& .MuiListItemText-root': {
+			flex: 'none',
+			marginTop: '0',
+			marginBottom: '0',
+			fontSize: '0.8rem !important'
+		},
+
+		'& .MuiTypography-body1': {
+			fontSize: '0.9rem'
+		}
 	}
 }));
 
 const CountriesIndividual = (props) => {
-	const [ countryDetail, setCountryDetail ] = useState({});
+	const [ countryDetail, setCountryDetail ] = useState([]);
 
 	const { match } = props;
 	const name = match.params.name;
@@ -46,7 +79,7 @@ const CountriesIndividual = (props) => {
 			try {
 				const res = await axios.get(`https://restcountries.eu/rest/v2/name/${name}?fullText=true`);
 				const data = res.data;
-				setCountryDetail(data[0]);
+				setCountryDetail(data);
 			} catch (err) {
 				console.log(err);
 			}
@@ -55,7 +88,15 @@ const CountriesIndividual = (props) => {
 		fetchCountry();
 	}, []);
 
+	const keys = countryDetail.length > 0 ? Object.keys(countryDetail && countryDetail[0]) : null;
+	// console.log(keys[16]);
+	console.log(keys);
 	console.log(countryDetail);
+	// console.log(countryDetail[keys[16]]);
+
+	if (countryDetail.length == 0) {
+		return <h2>Loading...</h2>;
+	}
 
 	return (
 		<Box p={'0 25px'} m={'8% 0 0 0'} color='primary'>
@@ -67,7 +108,36 @@ const CountriesIndividual = (props) => {
 					</Typography>
 				</NavLink>
 			</Box>
-			<CardMedia className={classes.media} image={countryDetail.flag} title='Contemplative Reptile' />
+			<Box>
+				<Box m={'0 0 15% 0'}>
+					<CardMedia
+						className={classes.media}
+						image={countryDetail.length > 0 ? countryDetail[0].flag : null}
+						title='Contemplative Reptile'
+					/>
+				</Box>
+				<Box>
+					<Box>
+						<Typography variant='h5'>{countryDetail[0].name}</Typography>
+					</Box>
+					<Box className={classes.listContainer}>
+						<List>
+							{countryDetail.map((country) => (
+								<CountryDetatils
+									region={country.region}
+									nativeName={country.nativeName}
+									population={country.population}
+									subRegion={country.subregion}
+									capital={country.capital}
+									currencies={country.currencies}
+									key={country.name}
+									toplvlDomain={country.topLevelDomain[0]}
+								/>
+							))}
+						</List>
+					</Box>
+				</Box>
+			</Box>
 		</Box>
 	);
 };
