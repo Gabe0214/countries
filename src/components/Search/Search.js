@@ -4,7 +4,7 @@ import { useStyles } from './SearchStyles/SearchStyles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { NameMenu } from './NameMenu/NamesMenu';
-export const SearchInput = ({ darkMode, query, setQuery, countries }) => {
+export const SearchInput = ({ darkMode, query, setQuery, countries, history }) => {
 	const classes = useStyles();
 	return (
 		<form className={classes.root}>
@@ -23,7 +23,7 @@ export const SearchInput = ({ darkMode, query, setQuery, countries }) => {
 				icon={faSearch}
 				style={{ position: 'absolute', top: '17px', left: '32px', opacity: darkMode ? '1' : '0.42' }}
 			/>
-			<NameMenu countriesList={countries} query={query} />
+			<NameMenu countriesList={countries} query={query} history={history} />
 		</form>
 	);
 };
