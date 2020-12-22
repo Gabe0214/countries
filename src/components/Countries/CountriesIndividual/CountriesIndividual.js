@@ -17,19 +17,22 @@ const CountriesIndividual = (props) => {
 
 	const classes = useStyles();
 
-	useEffect(() => {
-		const fetchCountry = async () => {
-			try {
-				const res = await axios.get(`https://restcountries.eu/rest/v2/alpha/${name}`);
-				const data = res.data;
-				setCountryDetail(data);
-			} catch (err) {
-				console.log(err);
-			}
-		};
+	useEffect(
+		() => {
+			const fetchCountry = async () => {
+				try {
+					const res = await axios.get(`https://restcountries.eu/rest/v2/alpha/${name}`);
+					const data = res.data;
+					setCountryDetail(data);
+				} catch (err) {
+					console.log(err);
+				}
+			};
 
-		fetchCountry();
-	}, []);
+			fetchCountry();
+		},
+		[ name ]
+	);
 
 	if (Object.keys(countryDetail).length == 0) {
 		return <h2>Loading...</h2>;
