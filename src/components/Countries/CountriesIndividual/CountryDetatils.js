@@ -14,7 +14,8 @@ export const CountryDetatils = ({
 	toplvlDomain,
 	currencies,
 	languages,
-	classes
+	classes,
+	borderCountries
 }) => {
 	return (
 		<div>
@@ -74,16 +75,16 @@ export const CountryDetatils = ({
 					)}
 				</ListItem>
 			</Box>
-			{/* <Box>
+			<Box>
 				<Typography variant='subtitle1'>Border Countries:</Typography>
 				<div className={classes.btnBox}>
-					{borderCountries.map((country) => (
-						<NavLink className={classes.back} to='/'>
+					{borderCountries.splice(0, 3).map((country) => (
+						<NavLink className={classes.back} to={`/country/${country}`}>
 							{country}
 						</NavLink>
 					))}
 				</div>
-			</Box> */}
+			</Box>
 		</div>
 	);
 };

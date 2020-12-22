@@ -25,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
 		textDecoration: 'none',
 		justifyContent: 'center',
 		color: theme.palette.text.primary,
+		marginRight: '3%',
 
 		'& .MuiSvgIcon-root': {
 			transform: 'rotateY(180deg)',
@@ -70,7 +71,8 @@ const useStyles = makeStyles((theme) => ({
 		}
 	},
 	btnBox: {
-		margin: '5% 0 6% 0 '
+		margin: '5% 0 6% 0 ',
+		display: 'flex'
 	}
 }));
 
@@ -105,7 +107,7 @@ const CountriesIndividual = (props) => {
 	if (Object.keys(countryDetail).length == 0) {
 		return <h2>Loading...</h2>;
 	}
-	console.log(countryDetail.currencies);
+	console.log(countryDetail);
 	return (
 		<Box p={'0 25px'} m={'8% 0 0 0'} color='primary'>
 			<Box margin={'8% 0 10% 0'}>
@@ -138,6 +140,7 @@ const CountriesIndividual = (props) => {
 								languages={countryDetail.languages}
 								classes={classes}
 								currencies={countryDetail.currencies}
+								borderCountries={countryDetail.borders}
 							/>
 
 							{/* // ))} */}
