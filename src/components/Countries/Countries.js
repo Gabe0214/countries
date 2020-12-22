@@ -19,6 +19,7 @@ const Countries = ({ darkMode, countriesData }) => {
 							capital={country.capital}
 							flag={country.flag}
 							key={country.name}
+							alphaCode={country.alpha3Code}
 						/>
 					))}
 			</Container>
