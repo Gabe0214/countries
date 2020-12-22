@@ -5,7 +5,13 @@ export const useStyles = makeStyles((theme) => ({
 	formControl: {
 		margin: '5% 0 8% 0',
 		width: '70%',
-		padding: '0 16px 0 16px'
+		[theme.breakpoints.up('sm')]: {
+			width: '50%'
+		},
+		padding: '0 16px 0 16px',
+		[theme.breakpoints.up('sm')]: {
+			padding: '0 24px 0 24px'
+		}
 	}
 }));
 
