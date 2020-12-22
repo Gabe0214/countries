@@ -75,7 +75,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const CountriesIndividual = (props) => {
-	const [ countryDetail, setCountryDetail ] = useState([]);
+	const [ countryDetail, setCountryDetail ] = useState({});
 
 	const { match } = props;
 	const name = match.params.name;
@@ -85,7 +85,7 @@ const CountriesIndividual = (props) => {
 	useEffect(() => {
 		const fetchCountry = async () => {
 			try {
-				const res = await axios.get(`https://restcountries.eu/rest/v2/name/${name}?fullText=true`);
+				const res = await axios.get(`https://restcountries.eu/rest/v2/alpha/${name}`);
 				const data = res.data;
 				setCountryDetail(data);
 			} catch (err) {
@@ -96,16 +96,16 @@ const CountriesIndividual = (props) => {
 		fetchCountry();
 	}, []);
 
-	const keys = countryDetail.length > 0 ? Object.keys(countryDetail && countryDetail[0]) : null;
-	// console.log(keys[16]);
-	console.log(keys);
-	console.log(countryDetail);
+	// const keys = countryDetail.length > 0 ? Object.keys(countryDetail && countryDetail[0]) : null;
+	// // console.log(keys[16]);
+	// console.log(keys);
+	// console.log(countryDetail);
 	// console.log(countryDetail[keys[16]]);
 
-	if (countryDetail.length == 0) {
+	if (Object.keys(countryDetail).length == 0) {
 		return <h2>Loading...</h2>;
 	}
-
+	console.log(countryDetail.currencies);
 	return (
 		<Box p={'0 25px'} m={'8% 0 0 0'} color='primary'>
 			<Box margin={'8% 0 10% 0'}>
@@ -118,32 +118,29 @@ const CountriesIndividual = (props) => {
 			</Box>
 			<Box>
 				<Box m={'0 0 15% 0'}>
-					<CardMedia
-						className={classes.media}
-						image={countryDetail.length > 0 ? countryDetail[0].flag : null}
-						title='Contemplative Reptile'
-					/>
+					<CardMedia className={classes.media} image={countryDetail !== {} ? `${countryDetail.flag}` : null} />
 				</Box>
 				<Box>
 					<Box>
-						<Typography variant='h5'>{countryDetail[0].name}</Typography>
+						<Typography variant='h5'>{countryDetail.name}</Typography>
 					</Box>
 					<Box className={classes.listContainer}>
 						<List>
-							{countryDetail.map((country) => (
-								<CountryDetatils
-									region={country.region}
-									nativeName={country.nativeName}
-									population={country.population}
-									subRegion={country.subregion}
-									capital={country.capital}
-									currencies={country.currencies}
-									key={country.name}
-									toplvlDomain={country.topLevelDomain[0]}
-									languages={country.languages}
-									classes={classes}
-								/>
-							))}
+							{/* {countryDetail.map((country) => ( */}
+
+							<CountryDetatils
+								region={countryDetail.region}
+								nativeName={countryDetail.nativeName}
+								population={countryDetail.population}
+								subRegion={countryDetail.subregion}
+								capital={countryDetail.capital}
+								toplvlDomain={countryDetail.topLevelDomain[0]}
+								languages={countryDetail.languages}
+								classes={classes}
+								currencies={countryDetail.currencies}
+							/>
+
+							{/* // ))} */}
 						</List>
 					</Box>
 				</Box>
