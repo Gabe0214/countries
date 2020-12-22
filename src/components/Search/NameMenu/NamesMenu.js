@@ -1,32 +1,9 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { useStyles } from './NamesMenuStyles';
 import Paper from '@material-ui/core/Paper';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-
-const useStyles = makeStyles((theme) => ({
-	root: {
-		display: 'flex',
-		flexWrap: 'wrap',
-		justifyContent: 'center',
-		position: 'absolute',
-		top: '56px',
-		left: '0px',
-		zIndex: '15',
-
-		'& > *': {
-			margin: '0',
-			width: '92%',
-			height: '300px',
-			overflowY: 'auto'
-		},
-
-		'& .MuiPaper-root': {
-			backgroundColor: theme.palette.primary.main
-		}
-	}
-}));
 
 export const NameMenu = ({ countriesList, query, history }) => {
 	const classes = useStyles();
