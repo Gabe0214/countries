@@ -36,7 +36,7 @@ export const NameMenu = ({ countriesList, query, history }) => {
 				<List>
 					{countriesList.map((country) => (
 						<ListItem button key={country.name}>
-							<ListItemText primary={country.name} onClick={() => history.push(`/country/${country.name}`)} />
+							<ListItemText primary={country.name} onClick={() => history.push(`/country/${country.alpha3Code}`)} />
 						</ListItem>
 					))}
 				</List>

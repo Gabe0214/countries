@@ -23,10 +23,7 @@ const App = () => {
 						}}
 					/>
 					<Route path='/country/:name' render={(props) => <CountriesIndividual {...props} />} />
-					{/* <Route path='/' render={() => <Main darkMode={darkmode} />} /> */}
 				</Switch>
-				{/* <NavBar setDarkMode={setDarkMode} darkmode={darkmode} />
-				<Main darkMode={darkmode} /> */}
 			</CssBaseline>
 		</ThemeProvider>
 	);
