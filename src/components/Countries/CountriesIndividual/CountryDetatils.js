@@ -4,7 +4,18 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
-export const CountryDetatils = ({ nativeName, population, region, subRegion, capital, toplvlDomain, currencies }) => {
+import { NavLink } from 'react-router-dom';
+export const CountryDetatils = ({
+	nativeName,
+	population,
+	region,
+	subRegion,
+	capital,
+	toplvlDomain,
+	currencies,
+	languages,
+	classes
+}) => {
 	return (
 		<div>
 			<Box>
@@ -36,18 +47,43 @@ export const CountryDetatils = ({ nativeName, population, region, subRegion, cap
 				</ListItem>
 				<ListItem>
 					<Typography variant='subtitle1'>Currencies:</Typography>
-					{currencies.length == 0 ? (
+					{currencies.length == 1 ? (
 						<ListItemText primary={currencies[0].name} />
 					) : (
 						currencies.map((currency, i) => {
-							if (i + 1 == currencies.length) {
-								return <ListItemText key={currency.name} primary={currency.name} />;
-							}
-							return <ListItemText style={{ whiteSpace: 'pre' }} primary={`${currency.name}, `} key={currency.name} />;
+							return i + 1 == currencies.length ? (
+								<ListItemText key={currency.name} primary={currency.name} />
+							) : (
+								<ListItemText style={{ whiteSpace: 'pre' }} primary={`${currency.name}, `} key={currency.name} />
+							);
+						})
+					)}
+				</ListItem>
+				<ListItem>
+					<Typography variant='subtitle1'>Languagies:</Typography>
+					{languages.length == 1 ? (
+						<ListItemText primary={languages[0].name} />
+					) : (
+						languages.map((language, i) => {
+							return i + 1 == languages.length ? (
+								<ListItemText key={language.name} primary={language.name} />
+							) : (
+								<ListItemText style={{ whiteSpace: 'pre' }} primary={`${language.name}, `} key={language.name} />
+							);
 						})
 					)}
 				</ListItem>
 			</Box>
+			{/* <Box>
+				<Typography variant='subtitle1'>Border Countries:</Typography>
+				<div className={classes.btnBox}>
+					{borderCountries.map((country) => (
+						<NavLink className={classes.back} to='/'>
+							{country}
+						</NavLink>
+					))}
+				</div>
+			</Box> */}
 		</div>
 	);
 };
