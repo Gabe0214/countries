@@ -7,11 +7,12 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-
-const CountryCard = ({ name, population, region, flag, capital, pizza }) => {
+import { useHistory } from 'react-router-dom';
+const CountryCard = ({ name, population, region, flag, capital, alphaCode }) => {
+	let history = useHistory();
 	const classes = useStyles();
 	return (
-		<Card className={classes.root}>
+		<Card className={classes.root} onClick={() => history.push(`/country/${alphaCode}`)}>
 			<CardActionArea>
 				<CardMedia className={classes.media} image={flag} title='Contemplative Reptile' />
 				<CardContent>
@@ -30,10 +31,7 @@ const CountryCard = ({ name, population, region, flag, capital, pizza }) => {
 				</CardContent>
 			</CardActionArea>
 			<CardActions>
-				<Button size='small' color='textPrimary'>
-					Share
-				</Button>
-				<Button size='small' color='textPrimary'>
+				<Button size='small' color='textPrimary' onClick={() => history.push(`/country/${alphaCode}`)}>
 					Learn More
 				</Button>
 			</CardActions>
