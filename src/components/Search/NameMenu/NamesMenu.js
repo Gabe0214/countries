@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
 		top: '56px',
 		left: '0px',
 		zIndex: '15',
+		paddingTop: '5px',
 
 		'& > *': {
 			margin: '0',

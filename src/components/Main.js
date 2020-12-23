@@ -4,7 +4,8 @@ import { SearchInput } from './Search/Search';
 import { FilterRegion } from './FitlerRegion/FilterRegion';
 import Countries from './Countries/Countries';
 import CountriesPagination from './Countries/Pagination/Pagination';
-import { NameMenu } from './Search/NameMenu/NamesMenu';
+import Box from '@material-ui/core/Box';
+import { useStyles } from './UniversalStyles';
 
 const Main = ({ darkMode, history }) => {
 	const [ countries, setCountries ] = useState([]);
@@ -13,6 +14,9 @@ const Main = ({ darkMode, history }) => {
 	const [ countriesPerPage ] = useState(25);
 	const [ filterOption, setFilterOption ] = useState('');
 	const [ query, setQuery ] = useState('');
+
+	const classes = useStyles();
+
 	useEffect(() => {
 		setLoading(true);
 		const fetchCountries = async () => {
@@ -41,8 +45,10 @@ const Main = ({ darkMode, history }) => {
 
 	return (
 		<div>
-			<SearchInput darkMode={darkMode} query={query} setQuery={setQuery} countries={searchFilter} history={history} />
-			<FilterRegion darkMode={darkMode} filterOption={filterOption} setFilterOption={setFilterOption} />
+			<Box className={classes.filterSearchBox}>
+				<SearchInput darkMode={darkMode} query={query} setQuery={setQuery} countries={searchFilter} history={history} />
+				<FilterRegion darkMode={darkMode} filterOption={filterOption} setFilterOption={setFilterOption} />
+			</Box>
 			{loading ? <h2>Loading...</h2> : <Countries darkMode={darkMode} countriesData={currentCountries} />}
 			<CountriesPagination
 				allCountries={countries && countries.length}

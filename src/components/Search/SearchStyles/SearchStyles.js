@@ -6,14 +6,23 @@ export const useStyles = makeStyles((theme) => ({
 			width: '100%',
 			[theme.breakpoints.up('sm')]: {
 				width: '68%'
+			},
+			[theme.breakpoints.up('lg')]: {
+				width: '100%'
 			}
 		},
 		position: 'relative',
 		padding: '0 16px 0 16px',
+		marginTop: '10%',
 		[theme.breakpoints.up('sm')]: {
 			padding: '0 24px 0 24px'
 		},
-		marginTop: '10%'
+
+		[theme.breakpoints.up('lg')]: {
+			margin: '0',
+			padding: 0,
+			width: '33%'
+		}
 	},
 	icon: {
 		position: 'absolute',
@@ -21,6 +30,9 @@ export const useStyles = makeStyles((theme) => ({
 		left: '32px',
 		[theme.breakpoints.up('sm')]: {
 			left: '41px'
+		},
+		[theme.breakpoints.up('lg')]: {
+			left: '25px'
 		}
 	}
 }));
