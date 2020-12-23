@@ -14,7 +14,7 @@ export const useStyles = makeStyles((theme) => ({
 		}
 	}
 }));
-
+const breakPoints = createMuiTheme();
 export const selectThemeLight = createMuiTheme({
 	overrides: {
 		MuiSelect: {
@@ -50,7 +50,10 @@ export const selectThemeLight = createMuiTheme({
 		},
 		MuiPopover: {
 			paper: {
-				top: '243px !important'
+				top: '243px !important',
+				[breakPoints.breakpoints.up('sm')]: {
+					top: '301px !important'
+				}
 			}
 		},
 

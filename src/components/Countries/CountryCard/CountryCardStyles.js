@@ -18,8 +18,6 @@ export const useStyles = makeStyles((theme) => ({
 		},
 		[theme.breakpoints.up('sm')]: {
 			maxWidth: '718px',
-			paddingLeft: '0',
-			paddingRight: '0',
 			display: 'flex',
 			justifyContent: 'space-between',
 			flexWrap: 'wrap'
