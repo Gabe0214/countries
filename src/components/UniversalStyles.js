@@ -1,4 +1,16 @@
 import { createMuiTheme } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core';
+
+export const useStyles = makeStyles((theme) => ({
+	filterSearchBox: {
+		display: 'flex',
+		justifyContent: 'space-between',
+		[theme.breakpoints.up('lg')]: {
+			maxWidth: theme.breakpoints.values.lg,
+			margin: '3% auto'
+		}
+	}
+}));
 
 export const lightTheme = createMuiTheme({
 	palette: {

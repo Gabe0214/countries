@@ -4,13 +4,17 @@ import { createMuiTheme } from '@material-ui/core/styles';
 export const useStyles = makeStyles((theme) => ({
 	formControl: {
 		margin: '5% 0 8% 0',
-		width: '70%',
+		width: '25%',
 		[theme.breakpoints.up('sm')]: {
 			width: '50%'
 		},
 		padding: '0 16px 0 16px',
 		[theme.breakpoints.up('sm')]: {
 			padding: '0 24px 0 24px'
+		},
+		[theme.breakpoints.up('lg')]: {
+			padding: '0',
+			margin: '0'
 		}
 	}
 }));
@@ -53,6 +57,10 @@ export const selectThemeLight = createMuiTheme({
 				top: '243px !important',
 				[breakPoints.breakpoints.up('sm')]: {
 					top: '301px !important'
+				},
+
+				[breakPoints.breakpoints.up('lg')]: {
+					top: '177px !important'
 				}
 			}
 		},
@@ -117,7 +125,15 @@ export const selectThemeDark = createMuiTheme({
 		MuiPopover: {
 			paper: {
 				top: '243px !important',
-				backgroundColor: '#2b3945'
+				backgroundColor: '#2b3945',
+
+				[breakPoints.breakpoints.up('sm')]: {
+					top: '301px !important'
+				},
+
+				[breakPoints.breakpoints.up('lg')]: {
+					top: '177px !important'
+				}
 			}
 		},
 
