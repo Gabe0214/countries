@@ -19,10 +19,7 @@ export const SearchInput = ({ darkMode, query, setQuery, countries, history }) =
 					return setQuery(e.target.value), e.preventDefault();
 				}}
 			/>
-			<FontAwesomeIcon
-				icon={faSearch}
-				style={{ position: 'absolute', top: '17px', left: '32px', opacity: darkMode ? '1' : '0.42' }}
-			/>
+			<FontAwesomeIcon icon={faSearch} style={{ opacity: darkMode ? '1' : '0.42' }} className={classes.icon} />
 			<NameMenu countriesList={countries} query={query} history={history} />
 		</form>
 	);

@@ -76,7 +76,9 @@ export const CountryDetatils = ({
 				</ListItem>
 			</Box>
 			<Box>
-				<Typography variant='subtitle1'>Border Countries:</Typography>
+				<Typography variant='subtitle1' classes={{ root: classes.title }}>
+					Border Countries:
+				</Typography>
 				<div className={classes.btnBox}>
 					{borderCountries.splice(0, 3).map((country) => (
 						<NavLink className={classes.back} to={`/country/${country}`}>

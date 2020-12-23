@@ -5,7 +5,7 @@ export const useStyles = makeStyles((theme) => ({
 		'& > *': {
 			width: '100%',
 			[theme.breakpoints.up('sm')]: {
-				width: '69%'
+				width: '68%'
 			}
 		},
 		position: 'relative',
@@ -14,5 +14,13 @@ export const useStyles = makeStyles((theme) => ({
 			padding: '0 24px 0 24px'
 		},
 		marginTop: '10%'
+	},
+	icon: {
+		position: 'absolute',
+		top: '17px',
+		left: '32px',
+		[theme.breakpoints.up('sm')]: {
+			left: '41px'
+		}
 	}
 }));

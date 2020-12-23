@@ -3,13 +3,13 @@ import Container from '@material-ui/core/Container';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CountryCard from './CountryCard/CountryCard';
 import { cardLight, cardDark } from './CountryCard/CountryCardStyles';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import { useStyles } from './CountryCard/CountryCardStyles';
 
 const Countries = ({ darkMode, countriesData }) => {
+	const classes = useStyles();
 	return (
 		<ThemeProvider theme={darkMode ? cardDark : cardLight}>
-			{/* <CssBaseline /> */}
-			<Container maxWidth='sm'>
+			<Container className={classes.container}>
 				{countriesData &&
 					countriesData.map((country) => (
 						<CountryCard
