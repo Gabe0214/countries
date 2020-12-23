@@ -1,9 +1,33 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles((theme) => ({
-	media: {
-		height: 220
+	imgContainer: {
+		[theme.breakpoints.up('sm')]: {
+			marginBottom: '3%',
+			display: 'flex',
+			justifyContent: 'center'
+		}
 	},
+	media: {
+		[theme.breakpoints.up('sm')]: {
+			width: '73%'
+		},
+		height: 259
+	},
+	title: {
+		[theme.breakpoints.up('sm')]: {
+			textAlign: 'center'
+		}
+	},
+
+	backBtnContainer: {
+		[theme.breakpoints.up('sm')]: {
+			display: 'flex',
+			justifyContent: 'center',
+			margin: '4% 0'
+		}
+	},
+
 	back: {
 		display: 'flex',
 		alignItems: 'center',
@@ -15,6 +39,10 @@ export const useStyles = makeStyles((theme) => ({
 		justifyContent: 'center',
 		color: theme.palette.text.primary,
 		marginRight: '3%',
+
+		[theme.breakpoints.up('sm')]: {
+			width: '19%'
+		},
 
 		'& .MuiSvgIcon-root': {
 			transform: 'rotateY(180deg)',
@@ -36,7 +64,10 @@ export const useStyles = makeStyles((theme) => ({
 			paddingLeft: '0',
 			paddingRight: '0',
 			paddingBottom: '0',
-			paddingTop: '0'
+			paddingTop: '0',
+			[theme.breakpoints.up('sm')]: {
+				justifyContent: 'center'
+			}
 		},
 
 		'& .MuiTypography-subtitle1': {
@@ -56,11 +87,17 @@ export const useStyles = makeStyles((theme) => ({
 		},
 
 		'& .MuiBox-root': {
-			marginTop: '8%'
+			marginTop: '8%',
+			[theme.breakpoints.up('sm')]: {
+				marginTop: '0'
+			}
 		}
 	},
 	btnBox: {
 		margin: '5% 0 6% 0 ',
-		display: 'flex'
+		display: 'flex',
+		[theme.breakpoints.up('sm')]: {
+			justifyContent: 'center'
+		}
 	}
 }));

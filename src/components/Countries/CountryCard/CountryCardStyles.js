@@ -1,14 +1,31 @@
 import { makeStyles, createMuiTheme } from '@material-ui/core/styles';
 
-export const useStyles = makeStyles({
+export const useStyles = makeStyles((theme) => ({
 	root: {
 		maxWidth: 345,
-		marginBottom: '8%'
+		marginBottom: '8%',
+		[theme.breakpoints.up('sm')]: {
+			width: '46%'
+		}
 	},
 	media: {
 		height: 188
+	},
+
+	container: {
+		[theme.breakpoints.up('xs')]: {
+			maxWidth: '600px'
+		},
+		[theme.breakpoints.up('sm')]: {
+			maxWidth: '718px',
+			paddingLeft: '0',
+			paddingRight: '0',
+			display: 'flex',
+			justifyContent: 'space-between',
+			flexWrap: 'wrap'
+		}
 	}
-});
+}));
 
 export const cardLight = createMuiTheme({
 	palette: {

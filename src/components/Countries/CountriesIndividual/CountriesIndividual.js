@@ -40,7 +40,7 @@ const CountriesIndividual = (props) => {
 	console.log(countryDetail);
 	return (
 		<Box p={'0 25px'} m={'8% 0 0 0'} color='primary'>
-			<Box margin={'8% 0 10% 0'}>
+			<Box margin={'8% 0 10% 0'} className={classes.backBtnContainer}>
 				<NavLink to='/' className={classes.back}>
 					<TrendingFlatIcon />
 					<Typography variant='button' component='span' className={classes.burger} color='textPrimary'>
@@ -49,12 +49,14 @@ const CountriesIndividual = (props) => {
 				</NavLink>
 			</Box>
 			<Box>
-				<Box m={'0 0 15% 0'}>
+				<Box m={'0 0 15% 0'} className={classes.imgContainer}>
 					<CardMedia className={classes.media} image={countryDetail !== {} ? `${countryDetail.flag}` : null} />
 				</Box>
 				<Box>
 					<Box>
-						<Typography variant='h5'>{countryDetail.name}</Typography>
+						<Typography variant='h5' classes={{ root: classes.title }}>
+							{countryDetail.name}
+						</Typography>
 					</Box>
 					<Box className={classes.listContainer}>
 						<List>
