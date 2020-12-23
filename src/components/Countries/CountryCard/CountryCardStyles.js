@@ -21,6 +21,10 @@ export const useStyles = makeStyles((theme) => ({
 			display: 'flex',
 			justifyContent: 'space-between',
 			flexWrap: 'wrap'
+		},
+		[theme.breakpoints.up('lg')]: {
+			maxWidth: theme.breakpoints.values.lg,
+			padding: '0'
 		}
 	}
 }));

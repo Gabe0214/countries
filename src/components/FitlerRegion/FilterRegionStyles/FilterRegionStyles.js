@@ -60,7 +60,7 @@ export const selectThemeLight = createMuiTheme({
 				},
 
 				[breakPoints.breakpoints.up('lg')]: {
-					top: '177px !important'
+					top: '192px !important'
 				}
 			}
 		},
@@ -132,7 +132,7 @@ export const selectThemeDark = createMuiTheme({
 				},
 
 				[breakPoints.breakpoints.up('lg')]: {
-					top: '177px !important'
+					top: '192px !important'
 				}
 			}
 		},
