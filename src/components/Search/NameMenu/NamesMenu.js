@@ -20,7 +20,10 @@ const useStyles = makeStyles((theme) => ({
 			margin: '0',
 			width: '92%',
 			height: '300px',
-			overflowY: 'auto'
+			overflowY: 'auto',
+			[theme.breakpoints.up('lg')]: {
+				width: '100%'
+			}
 		},
 
 		'& .MuiPaper-root': {

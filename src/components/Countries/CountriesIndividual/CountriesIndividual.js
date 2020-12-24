@@ -48,11 +48,11 @@ const CountriesIndividual = (props) => {
 					</Typography>
 				</NavLink>
 			</Box>
-			<Box>
+			<Box classes={{ root: classes.contentContainer }}>
 				<Box m={'0 0 15% 0'} className={classes.imgContainer}>
 					<CardMedia className={classes.media} image={countryDetail !== {} ? `${countryDetail.flag}` : null} />
 				</Box>
-				<Box>
+				<Box className={classes.textContainer}>
 					<Box>
 						<Typography variant='h5' classes={{ root: classes.title }}>
 							{countryDetail.name}

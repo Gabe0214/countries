@@ -20,7 +20,13 @@ export const useStyles = makeStyles((theme) => ({
 			maxWidth: '718px',
 			display: 'flex',
 			justifyContent: 'space-between',
-			flexWrap: 'wrap'
+			flexWrap: 'wrap',
+			paddingLeft: 0,
+			paddingRight: 0
+		},
+		[theme.breakpoints.up('lg')]: {
+			maxWidth: theme.breakpoints.values.lg,
+			padding: '0'
 		}
 	}
 }));

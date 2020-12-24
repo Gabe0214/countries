@@ -4,8 +4,12 @@ import { makeStyles } from '@material-ui/core';
 export const useStyles = makeStyles((theme) => ({
 	filterSearchBox: {
 		display: 'flex',
-		justifyContent: 'space-between',
+		flexDirection: 'column',
+
 		[theme.breakpoints.up('lg')]: {
+			display: 'flex',
+			justifyContent: 'space-between',
+			flexDirection: 'row',
 			maxWidth: theme.breakpoints.values.lg,
 			margin: '3% auto'
 		}
