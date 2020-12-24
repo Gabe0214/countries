@@ -1,5 +1,4 @@
 import React from 'react';
-import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Box from '@material-ui/core/Box';
@@ -18,8 +17,8 @@ export const CountryDetatils = ({
 	borderCountries
 }) => {
 	return (
-		<div>
-			<Box>
+		<div className={classes.countryDetailsContainer}>
+			<Box className={classes.boxContentText}>
 				<ListItem>
 					<Typography variant='subtitle1'>Native Name:</Typography>
 					<ListItemText primary={nativeName} />
@@ -41,7 +40,7 @@ export const CountryDetatils = ({
 					<ListItemText primary={capital} />
 				</ListItem>
 			</Box>
-			<Box>
+			<Box className={classes.boxContentText}>
 				<ListItem>
 					<Typography variant='subtitle1'>Top Level Domain: </Typography>
 					<ListItemText primary={toplvlDomain} />
@@ -75,13 +74,13 @@ export const CountryDetatils = ({
 					)}
 				</ListItem>
 			</Box>
-			<Box>
+			<Box className={classes.borderSection}>
 				<Typography variant='subtitle1' classes={{ root: classes.title }}>
 					Border Countries:
 				</Typography>
 				<div className={classes.btnBox}>
-					{borderCountries.splice(0, 3).map((country) => (
-						<NavLink className={classes.back} to={`/country/${country}`}>
+					{borderCountries.slice(0, 3).map((country) => (
+						<NavLink key={country} className={`${classes.back} ${classes.borderLinks}`} to={`/country/${country}`}>
 							{country}
 						</NavLink>
 					))}

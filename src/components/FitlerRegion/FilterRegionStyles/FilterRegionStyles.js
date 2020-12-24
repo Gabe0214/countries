@@ -4,7 +4,7 @@ import { createMuiTheme } from '@material-ui/core/styles';
 export const useStyles = makeStyles((theme) => ({
 	formControl: {
 		margin: '5% 0 8% 0',
-		width: '25%',
+		width: '56%',
 		[theme.breakpoints.up('sm')]: {
 			width: '50%'
 		},
@@ -14,7 +14,8 @@ export const useStyles = makeStyles((theme) => ({
 		},
 		[theme.breakpoints.up('lg')]: {
 			padding: '0',
-			margin: '0'
+			margin: '0',
+			width: '25%'
 		}
 	}
 }));
