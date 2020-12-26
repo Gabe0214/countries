@@ -26,6 +26,9 @@ export const useStyles = makeStyles((theme) => ({
 		minHeight: '80px'
 	},
 	iconContainer: {
-		cursor: 'pointer'
+		cursor: 'pointer',
+		[theme.breakpoints.up('lg')]: {
+			fontSize: '1.2rem'
+		}
 	}
 }));
