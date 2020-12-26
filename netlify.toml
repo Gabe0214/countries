@@ -2,4 +2,4 @@
   from = "/country/:name"
   to = "/country/:name"
   status = 200
-  edge_handler = "filterRequests"
+ 
