@@ -22,9 +22,10 @@ export const useStyles = makeStyles((theme) => ({
 		}
 	},
 	media: {
-		height: 259,
+		height: 168,
 		[theme.breakpoints.up('sm')]: {
-			width: '73%'
+			width: '73%',
+			height: '259px'
 		},
 		[theme.breakpoints.up('lg')]: {
 			width: '500px',
