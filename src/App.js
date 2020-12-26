@@ -6,9 +6,9 @@ import Main from './components/Main';
 import NavBar from './components/Navbar/Navbar';
 import { Switch, Route } from 'react-router-dom';
 import CountriesIndividual from './components/Countries/CountriesIndividual/CountriesIndividual';
-
+import { useDarkMode } from './components/CustomHook/useDarkMode';
 const App = () => {
-	const [ darkmode, setDarkMode ] = useState(false);
+	const [ darkmode, setDarkMode ] = useDarkMode(false);
 
 	return (
 		<ThemeProvider theme={darkmode ? darkTheme : lightTheme}>

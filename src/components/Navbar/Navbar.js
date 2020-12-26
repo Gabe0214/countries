@@ -11,7 +11,7 @@ const NavBar = ({ darkmode, setDarkMode }) => {
 
 	const changeTheme = (e) => {
 		e.preventDefault();
-		setDarkMode((prevState) => !prevState);
+		setDarkMode(!darkmode);
 	};
 	return (
 		<div className={classes.root}>
