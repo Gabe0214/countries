@@ -35,7 +35,11 @@ const CountriesIndividual = (props) => {
 	);
 
 	if (Object.keys(countryDetail).length == 0) {
-		return <h2>Loading...</h2>;
+		return (
+			<div className={classes.worldLoader}>
+				<img src={'/worldspinner.gif'} />
+			</div>
+		);
 	}
 	console.log(countryDetail);
 	return (

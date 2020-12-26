@@ -43,13 +43,21 @@ const Main = ({ darkMode, history }) => {
 
 	const searchFilter = countries.filter((country) => country.name.toLowerCase().includes(query.toLowerCase()));
 
+	if (loading) {
+		return (
+			<div className={classes.worldLoader}>
+				<img src='/worldspinner.gif' />
+			</div>
+		);
+	}
+
 	return (
 		<div>
 			<Box className={classes.filterSearchBox}>
 				<SearchInput darkMode={darkMode} query={query} setQuery={setQuery} countries={searchFilter} history={history} />
 				<FilterRegion darkMode={darkMode} filterOption={filterOption} setFilterOption={setFilterOption} />
 			</Box>
-			{loading ? <h2>Loading...</h2> : <Countries darkMode={darkMode} countriesData={currentCountries} />}
+			<Countries darkMode={darkMode} countriesData={currentCountries} />
 			<CountriesPagination
 				allCountries={countries && countries.length}
 				page={currentPage}

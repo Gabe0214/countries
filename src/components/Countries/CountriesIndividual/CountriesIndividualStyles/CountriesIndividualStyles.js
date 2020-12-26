@@ -174,5 +174,11 @@ export const useStyles = makeStyles((theme) => ({
 			textAlign: 'center',
 			marginRight: '3%'
 		}
+	},
+	worldLoader: {
+		display: 'flex',
+		justifyContent: 'center',
+		alignItems: 'center',
+		height: '100vh'
 	}
 }));
