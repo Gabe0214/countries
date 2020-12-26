@@ -13,6 +13,12 @@ export const useStyles = makeStyles((theme) => ({
 			maxWidth: theme.breakpoints.values.lg,
 			margin: '3% auto'
 		}
+	},
+	worldLoader: {
+		display: 'flex',
+		justifyContent: 'center',
+		alignItems: 'center',
+		height: '100vh'
 	}
 }));
 
