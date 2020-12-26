@@ -1,5 +1,0 @@
-[[redirects]]
-  from = "/country/:name"
-  to = "/country/:name"
-  status = 200
- 
