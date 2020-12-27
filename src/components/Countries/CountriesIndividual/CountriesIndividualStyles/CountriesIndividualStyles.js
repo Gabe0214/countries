@@ -28,8 +28,8 @@ export const useStyles = makeStyles((theme) => ({
 			height: '259px'
 		},
 		[theme.breakpoints.up('lg')]: {
-			width: '500px',
-			height: '374px'
+			width: '525px',
+			height: '286px'
 		}
 	},
 
